@@ -3,3 +3,9 @@ header {
   flex-direction: column;
   align-items: center;
 }
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+}
