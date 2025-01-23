@@ -1,2 +1,27 @@
+<form [formGroup]="dadosFormulario" (ngSubmit)="onSubmit()">
+  <section>
+    <label for="nome">Nome:</label>
+    <input id="nome" type="text" formControlName="nome">
 
-<h1>Formulário</h1>
+    <small *ngIf="nome?.touched && nome?.invalid ">
+      <span *ngIf="nome?.errors?.['required']">Campo obrigatório!</span>
+      <span *ngIf="nome?.errors?.['minlength']">O campo precisa ter no mínimo 3 caracteres</span>
+     </small>
+  </section>
+
+  <section>
+    <label for="endereco">Endereço:</label>
+    <input id="endereco" type="text" formControlName="endereco">
+  </section>
+
+  <button [disabled]="dadosFormulario.status === 'INVALID'" type="submit">Salvar Dados</button>
+</form>
+
+
+<h2>Dados Salvos</h2>
+<p>Form value: {{ dadosFormulario.value | json }} </p>
+<p>Form status: {{ dadosFormulario.status }} </p>
+
+<button mat-fab extended="" routerLink="/">
+Voltar ao menu
+</button>

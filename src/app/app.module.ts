@@ -8,6 +8,7 @@ import { FormulariosComponent } from './components/formularios/formularios.compo
 
 import { MatButtonModule } from '@angular/material/button';
 import { HomeComponent } from './pages/home/home.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, FormulariosComponent, HomeComponent],
@@ -16,6 +17,8 @@ import { HomeComponent } from './pages/home/home.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

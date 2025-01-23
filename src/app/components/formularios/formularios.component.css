@@ -2,3 +2,11 @@
   max-width: 400px;
   border: black solid 2px;
 }
+input.invalid {
+  border-color: red;
+}
+
+small {
+  color: red;
+  font-size: 0.9em;
+}
