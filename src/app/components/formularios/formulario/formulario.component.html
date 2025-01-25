@@ -1,6 +1,86 @@
-<p>formulario works!</p>
+<section>
+
+  <span class="botaoVoltar">
+    <button type="button" routerLink="/" class="btn btn-primary">Voltar para home</button>
+  </span>
+
+
+  <form>
+    <section>
+      <h5>Dados Pessoais:</h5>
+      <div class="col-md-12">
+        <label class="form-label" for="">Nome:</label>
+        <input type="text" class="form-control">
+      </div>
+      <div class="col-md-12">
+        <label class="form-label" for="">Email:</label>
+        <input type="text" class="form-control">
+      </div>
+      <div class="col-md-12">
+        <label class="form-label" for="">Profissão:</label>
+        <input type="text" class="form-control">
+      </div>
+      <div class="row d-flex align-items-center">
+
+        <div class="col-3">
+          <label class="form-label" for="">idade:</label>
+          <input type="text" class="form-control">
+        </div>
+        <div class="col-8 mt-4">
+
+          <div class="form-check form-check-inline">
+            <input type="checkbox" class="form-check-input">
+            <label class="form-label" for="">Masculino</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input type="checkbox" class="form-check-input">
+            <label class="form-label" for="">Feminino</label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h5>Endereço:</h5>
+      <div class="row">
+        <div class="col-4">
+          <label class="form-label" for="">Cep:</label>
+          <input type="text" class="form-control">
+        </div>
+        <div class="col-8">
+          <label class="form-label" for="">Rua:</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="row">
+
+        <div class="col-8">
+          <label class="form-label" for="">Complemento:</label>
+          <input type="text" class="form-control">
+        </div>
+        <div class="col-3">
+          <label class="form-label" for="">Número:</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="row cidadeEstado">
+        <div class="col-4">
+          <select class="form-select-sm col-12">
+            <option selected>Estado</option>
+            <option></option>
+          </select>
+        </div>
+        <div class="col-4">
+          <select class="form-select-sm col-12">
+            <option selected>Cidade</option>
+            <option></option>
+          </select>
+        </div>
+        </div>
+    </section>
+  </form>
+</section>
 
 <log-formulario></log-formulario>
 
-<button type="button" routerLink="/" class="btn btn-primary">Voltar para home</button>
 

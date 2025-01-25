@@ -1,0 +1,20 @@
+section {
+  margin: 0 4vh;
+}
+
+form {
+  margin-bottom: 10vh;
+}
+
+.botaoVoltar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+form input {
+  margin-bottom: 1vh;
+}
+
+form select {
+  margin-top: 1vh;
+}
