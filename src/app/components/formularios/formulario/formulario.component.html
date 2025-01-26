@@ -44,7 +44,7 @@
       <div class="row">
         <div class="col-4">
           <label class="form-label" for="cep">Cep:</label>
-          <input type="text" class="form-control" id="cep" formControlName="cep">
+          <input (change)="buscaCEP()" type="text" class="form-control" id="cep" formControlName="cep">
         </div>
         <div class="col-8">
           <label class="form-label" for="rua">Rua:</label>
@@ -63,15 +63,15 @@
       </div>
       <div class="row cidadeEstado">
         <div class="col-4">
-          <label for="">Selecione uma cidade:</label>
-          <select class="form-select-sm col-12" formControlName="estado">
-            <option selected id="estado">Estado</option>
+          <label for="">Selecione um estado:</label>
+          <select class="form-select-sm col-12" formControlName="cidade">
+            <option selected id="cidade" ></option>
           </select>
         </div>
         <div class="col-4">
-          <label for="">Selecione um estado:</label>
-          <select class="form-select-sm col-12" formControlName="cidade">
-            <option selected id="cidade">Cidade</option>
+          <label for="">Selecione uma cidade:</label>
+          <select class="form-select-sm col-12" formControlName="estado">
+            <option selected id="estado"></option>
           </select>
         </div>
         </div>
