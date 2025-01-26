@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./formulario.component.css'],
 })
 export class FormularioComponent {
-  @Input() dadosFormulario: FormGroup;
+  dadosFormulario: FormGroup;
 
   constructor(private fb: FormBuilder) {
     this.dadosFormulario = this.fb.group({

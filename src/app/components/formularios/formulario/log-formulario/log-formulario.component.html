@@ -1,3 +1,21 @@
+<h3>Log do Formuário</h3>
 <section>
- <!-- {{ dadosFormulari}} -->
+  <h5>Dados Pessoais</h5>
+
+  <p>Nome: {{ logFormulario.value.dadosPessoais.nome }}</p>
+  <p>Email: {{ logFormulario.value.dadosPessoais.email }}</p>
+  <p>Profissão: {{ logFormulario.value.dadosPessoais.profissao }}</p>
+  <p>Idade: {{ logFormulario.value.dadosPessoais.idade }}</p>
+  <p>Sexo: {{ logFormulario.value.dadosPessoais.sexo }}</p>
+</section>
+
+<section>
+  <h5>Endereço:</h5>
+
+  <p>Cep: {{ logFormulario.value.endereco.cep }}</p>
+  <p>Rua: {{ logFormulario.value.endereco.rua }}</p>
+  <p>Complemento: {{ logFormulario.value.endereco.complemento }}</p>
+  <p>Número: {{ logFormulario.value.endereco.numero }}</p>
+  <p>Cidade: {{ logFormulario.value.endereco.cidade }}</p>
+  <p>Estado: {{ logFormulario.value.endereco.estado }}</p>
 </section>

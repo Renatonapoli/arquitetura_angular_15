@@ -3,10 +3,11 @@ import { LogFormularioComponent } from './formulario/log-formulario/log-formular
 import { FormularioComponent } from './formulario/formulario.component';
 import { RouterLink } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [FormularioComponent, LogFormularioComponent],
-  imports: [RouterLink, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, RouterLink, FormsModule, ReactiveFormsModule],
   exports: [FormularioComponent],
 })
 export class FormulariosModule {}
