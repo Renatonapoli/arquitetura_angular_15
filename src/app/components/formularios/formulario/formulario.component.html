@@ -11,24 +11,53 @@
       <div class="col-md-12">
         <label class="form-label" for="nome">Nome:</label>
         <input class="form-control" type="text" id="nome" formControlName="nome">
+        <div
+          *ngIf="dadosFormulario.get('dadosPessoais.nome')?.invalid && dadosFormulario.get('dadosPessoais.nome')?.touched"
+          class="danger">
+          <small *ngIf="dadosFormulario.get('dadosPessoais.nome')?.errors?.['required']">Campo Obrigatório!</small>
+          <small *ngIf="dadosFormulario.get('dadosPessoais.nome')?.errors?.['minlength']">É necessário ao menos três
+            caracteres!</small>
+        </div>
       </div>
-      <div class="col-md-12">
-        <label class="form-label" for="email">Email:</label>
-        <input type="text" class="form-control" id="email" formControlName="email">
-      </div>
-      <div class="col-md-12">
-        <label class="form-label" for="profissao">Profissão:</label>
-        <input type="text" class="form-control" id="profissao" formControlName="profissao">
+      <div class="row">
+        <div class="col-md-6">
+          <label class="form-label" for="email">Email:</label>
+          <input type="text" class="form-control" id="email" formControlName="email">
+          <div
+            *ngIf="dadosFormulario.get('dadosPessoais.email')?.invalid && dadosFormulario.get('dadosPessoais.email')?.touched"
+            class="danger">
+            <small *ngIf="dadosFormulario.get('dadosPessoais.email')?.errors?.['required']">Campo Obrigatório!</small>
+            <small *ngIf="dadosFormulario.get('dadosPessoais.email')?.errors?.['email']">E-mail inválido!</small>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label" for="profissao">Profissão:</label>
+          <input type="text" class="form-control" id="profissao" formControlName="profissao">
+          <div
+            *ngIf="dadosFormulario.get('dadosPessoais.profissao')?.invalid && dadosFormulario.get('dadosPessoais.profissao')?.touched"
+            class="danger">
+            <small *ngIf="dadosFormulario.get('dadosPessoais.nome')?.errors?.['required']">Campo Obrigatório!</small>
+            <small *ngIf="dadosFormulario.get('dadosPessoais.nome')?.errors?.['minlength']">É necessário ao menos três
+              caracteres!</small>
+          </div>
+        </div>
       </div>
       <div class="row d-flex align-items-center">
         <div class="col-3">
           <label class="form-label" for="idade">idade:</label>
           <input type="text" class="form-control" id="idade" formControlName="idade">
+          <div
+            *ngIf="dadosFormulario.get('dadosPessoais.idade')?.invalid && dadosFormulario.get('dadosPessoais.idade')?.touched"
+            class="danger">
+            <small *ngIf="dadosFormulario.get('dadosPessoais.idade')?.errors?.['required']">Campo Obrigatório!</small>
+            <small *ngIf="dadosFormulario.get('dadosPessoais.idade')?.errors?.['minlength']">É necessário ao menos 2
+              caracteres!</small>
+          </div>
         </div>
         <div class="col-8 mt-4">
-
-          <div class="form-check form-check-inline" >
-            <input type="radio" class="form-check-input" value="Masculino" checked id="masculino" formControlName="sexo">
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" value="Masculino" checked id="masculino"
+              formControlName="sexo">
             <label class="form-label" for="masculino">Masculino</label>
           </div>
           <div class="form-check form-check-inline">
@@ -45,10 +74,19 @@
         <div class="col-4">
           <label class="form-label" for="cep">Cep:</label>
           <input (change)="buscaCEP()" type="text" class="form-control" id="cep" formControlName="cep">
+          <div *ngIf="dadosFormulario.get('endereco.cep')?.invalid && dadosFormulario.get('endereco.cep')?.touched"
+            class="danger">
+            <small *ngIf="dadosFormulario.get('endereco.cep')?.errors?.['required']">Campo Obrigatório!</small>
+            <small *ngIf="dadosFormulario.get('endereco.cep')?.errors?.['minlength']">É necessário 8 caracteres!</small>
+          </div>
         </div>
         <div class="col-8">
           <label class="form-label" for="rua">Rua:</label>
           <input type="text" class="form-control" id="rua" formControlName="rua">
+          <div *ngIf="dadosFormulario.get('endereco.rua')?.invalid && dadosFormulario.get('endereco.rua')?.touched"
+            class="danger">
+            <small *ngIf="dadosFormulario.get('endereco.rua')?.errors?.['required']">Campo Obrigatório!</small>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -56,16 +94,20 @@
           <label class="form-label" for="complemento">Complemento:</label>
           <input type="text" class="form-control" id="complemento" formControlName="complemento">
         </div>
-        <div class="col-3">
+        <div class="col-4">
           <label class="form-label" for="numero">Número:</label>
           <input type="text" class="form-control" id="numero" formControlName="numero">
+          <div *ngIf="dadosFormulario.get('endereco.numero')?.invalid && dadosFormulario.get('endereco.numero')?.touched"
+            class="danger">
+            <small *ngIf="dadosFormulario.get('endereco.numero')?.errors?.['required']">Campo Obrigatório!</small>
+          </div>
         </div>
       </div>
       <div class="row cidadeEstado">
         <div class="col-4">
           <label for="">Selecione um estado:</label>
           <select class="form-select-sm col-12" formControlName="cidade">
-            <option selected id="cidade" ></option>
+            <option selected id="cidade"></option>
           </select>
         </div>
         <div class="col-4">
@@ -74,16 +116,14 @@
             <option selected id="estado"></option>
           </select>
         </div>
-        </div>
+      </div>
     </section>
 
-    <div class="d-grid gap-2 mt-4 px-4" >
-      <button (click)="salvarDadosFormulario()" class="btn btn-primary" type="submit" >Enviar</button>
+    <div class="d-grid gap-2 mt-4 px-4">
+      <button (click)="salvarDadosFormulario()" class="btn btn-primary" type="submit">Enviar</button>
 
     </div>
   </form>
 </section>
 
 <log-formulario [logFormulario]="dadosFormulario"></log-formulario>
-
-

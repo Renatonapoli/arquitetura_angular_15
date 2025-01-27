@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormularioService } from '../service/formulario.service';
 
 @Component({
@@ -13,19 +13,19 @@ export class FormularioComponent {
   constructor(private fb: FormBuilder, private serviceCep: FormularioService) {
     this.dadosFormulario = this.fb.group({
       dadosPessoais: fb.group({
-        nome: [null],
-        email: [null],
-        profissao: [null],
-        idade: [null],
-        sexo: [null],
+        nome: [null, [Validators.required, Validators.minLength(3)]],
+        email: [null, [Validators.required, Validators.email]],
+        profissao: [null, [Validators.required, Validators.minLength(6)]],
+        idade: [null, [Validators.required, Validators.minLength(2)]],
+        sexo: [null, [Validators.required]],
       }),
       endereco: fb.group({
-        cep: [null],
-        rua: [null],
+        cep: [null, [Validators.required, Validators.minLength(8)]],
+        rua: [null, [Validators.required]],
         complemento: [null],
-        numero: [null],
-        estado: [null],
-        cidade: [null],
+        numero: [null, [Validators.required]],
+        estado: [null, [Validators.required]],
+        cidade: [null, [Validators.required]],
       }),
     });
   }
