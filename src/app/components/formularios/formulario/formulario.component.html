@@ -106,14 +106,18 @@
       <div class="row cidadeEstado">
         <div class="col-4">
           <label for="">Selecione um estado:</label>
-          <select class="form-select-sm col-12" formControlName="cidade">
-            <option selected id="cidade"></option>
+          <select  class="form-select-sm col-12" formControlName="estado" (change)="selecionaEstado($event)">
+            <option *ngFor="let estado of estados" [value]="estado.sigla" selected id="estado">
+              {{ estado.nome }}
+            </option>
           </select>
         </div>
         <div class="col-4">
           <label for="">Selecione uma cidade:</label>
-          <select class="form-select-sm col-12" formControlName="estado">
-            <option selected id="estado"></option>
+          <select  class="form-select-sm col-12" formControlName="cidade">
+            <option *ngFor="let cidade of cidades" [value]="cidade.nome" selected id="cidade">
+              {{ cidade.nome }}
+            </option>
           </select>
         </div>
       </div>

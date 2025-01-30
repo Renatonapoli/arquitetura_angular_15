@@ -9,6 +9,8 @@ import { FormularioService } from '../service/formulario.service';
 })
 export class FormularioComponent {
   dadosFormulario: FormGroup;
+  cidades: any[] = [];
+  estados: any[] = [];
 
   constructor(private fb: FormBuilder, private serviceCep: FormularioService) {
     this.dadosFormulario = this.fb.group({
@@ -30,37 +32,57 @@ export class FormularioComponent {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.estados = this.serviceCep.getEstados();
+  }
 
   buscaCEP() {
-    const cep = this.dadosFormulario.get('endereco.cep')?.value;
+    const input = event?.target as HTMLInputElement;
+    const cep = input.value;
+
+    if (!cep) return;
 
     this.serviceCep.getBuscaCEP(cep).subscribe({
       next: (dados) => {
-        if (dados.error) {
+        if (dados.erro) {
           alert('CEP inválido!');
         } else {
           this.dadosFormulario.patchValue({
             endereco: {
               cep: dados.cep,
               rua: dados.logradouro,
-              estado: dados.estado,
+              estado: dados.uf,
               cidade: dados.localidade,
             },
           });
+          this.populaEstadosECidades(dados.uf);
         }
       },
       error: (error) => {
         alert('Erro ao buscar o CEP');
         console.log(error);
       },
-      complete: () => {
-        alert('Por favor, insira um CEP válido.');
-      },
     });
   }
 
   salvarDadosFormulario() {
     console.log(this.dadosFormulario.value);
+  }
+
+  populaEstadosECidades(estadosSigla: string) {
+    this.cidades = this.serviceCep.getCidades(estadosSigla);
+    console.log(this.cidades);
+  }
+
+  selecionaEstado(event: Event) {
+    const select = event.target as HTMLSelectElement;
+    const estadoSigla = select.value;
+
+    if (estadoSigla) {
+      this.cidades = this.serviceCep.getCidades(estadoSigla);
+      console.log(this.cidades);
+    } else {
+      this.cidades = [];
+    }
   }
 }
