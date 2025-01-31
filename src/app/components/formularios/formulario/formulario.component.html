@@ -5,7 +5,7 @@
   </span>
 
 
-  <form [formGroup]="dadosFormulario">
+  <form [formGroup]="dadosFormulario" (ngSubmit)="salvarDadosFormulario()">
     <section formGroupName="dadosPessoais">
       <h5>Dados Pessoais:</h5>
       <div class="col-md-12">
@@ -36,8 +36,8 @@
           <div
             *ngIf="dadosFormulario.get('dadosPessoais.profissao')?.invalid && dadosFormulario.get('dadosPessoais.profissao')?.touched"
             class="danger">
-            <small *ngIf="dadosFormulario.get('dadosPessoais.nome')?.errors?.['required']">Campo Obrigatório!</small>
-            <small *ngIf="dadosFormulario.get('dadosPessoais.nome')?.errors?.['minlength']">É necessário ao menos três
+            <small *ngIf="dadosFormulario.get('dadosPessoais.profissao')?.errors?.['required']">Campo Obrigatório!</small>
+            <small *ngIf="dadosFormulario.get('dadosPessoais.profissao')?.errors?.['minlength']">É necessário ao menos três
               caracteres!</small>
           </div>
         </div>
@@ -73,7 +73,7 @@
       <div class="row">
         <div class="col-4">
           <label class="form-label" for="cep">Cep:</label>
-          <input (change)="buscaCEP()" type="text" class="form-control" id="cep" formControlName="cep">
+          <input (change)="buscaCEP($event)" type="text" class="form-control" id="cep" formControlName="cep">
           <div *ngIf="dadosFormulario.get('endereco.cep')?.invalid && dadosFormulario.get('endereco.cep')?.touched"
             class="danger">
             <small *ngIf="dadosFormulario.get('endereco.cep')?.errors?.['required']">Campo Obrigatório!</small>
@@ -111,6 +111,10 @@
               {{ estado.nome }}
             </option>
           </select>
+          <div *ngIf="dadosFormulario.get('endereco.estado')?.invalid && dadosFormulario.get('endereco.numero')?.touched"
+            class="danger">
+            <small *ngIf="dadosFormulario.get('endereco.estado')?.errors?.['required']">Campo Obrigatório!</small>
+          </div>
         </div>
         <div class="col-4">
           <label for="">Selecione uma cidade:</label>
@@ -119,15 +123,19 @@
               {{ cidade.nome }}
             </option>
           </select>
+          <div *ngIf="dadosFormulario.get('endereco.cidade')?.invalid && dadosFormulario.get('endereco.numero')?.touched"
+            class="danger">
+            <small *ngIf="dadosFormulario.get('endereco.cidade')?.errors?.['required']">Campo Obrigatório!</small>
+          </div>
         </div>
       </div>
     </section>
 
     <div class="d-grid gap-2 mt-4 px-4">
-      <button (click)="salvarDadosFormulario()" class="btn btn-primary" type="submit">Enviar</button>
+      <button class="btn btn-primary" type="submit">Enviar</button>
 
     </div>
   </form>
 </section>
 
-<log-formulario [logFormulario]="dadosFormulario"></log-formulario>
+<log-formulario [logFormulario]="logFormulario"></log-formulario>

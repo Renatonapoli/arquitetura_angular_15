@@ -34,12 +34,12 @@ export class FormularioService {
     );
 
     if (!estadoEncontrado) {
-      console.warn('Estado não encontrado para a silga:' + siglaEstado);
+      console.warn('Estado não encontrado para a sigla:' + siglaEstado);
       return [];
     }
 
     const estadoId = estadoEncontrado.id;
 
-    return cidades.filter((cidade) => cidade.estado == estadoId);
+    return cidades.filter((cidade) => cidade.estado === estadoId);
   }
 }

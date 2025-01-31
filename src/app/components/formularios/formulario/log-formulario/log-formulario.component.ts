@@ -7,5 +7,5 @@ import { FormGroup, FormGroupName } from '@angular/forms';
   styleUrls: ['./log-formulario.component.css'],
 })
 export class LogFormularioComponent {
-  @Input() logFormulario!: FormGroup;
+  @Input() logFormulario: any = null;
 }

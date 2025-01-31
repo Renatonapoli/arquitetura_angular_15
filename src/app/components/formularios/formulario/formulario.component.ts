@@ -11,15 +11,16 @@ export class FormularioComponent {
   dadosFormulario: FormGroup;
   cidades: any[] = [];
   estados: any[] = [];
+  logFormulario: any = null;
 
   constructor(private fb: FormBuilder, private serviceCep: FormularioService) {
     this.dadosFormulario = this.fb.group({
       dadosPessoais: fb.group({
         nome: [null, [Validators.required, Validators.minLength(3)]],
         email: [null, [Validators.required, Validators.email]],
-        profissao: [null, [Validators.required, Validators.minLength(6)]],
+        profissao: [null, [Validators.required, Validators.minLength(3)]],
         idade: [null, [Validators.required, Validators.minLength(2)]],
-        sexo: [null, [Validators.required]],
+        sexo: ['Masculino', [Validators.required]],
       }),
       endereco: fb.group({
         cep: [null, [Validators.required, Validators.minLength(8)]],
@@ -36,7 +37,7 @@ export class FormularioComponent {
     this.estados = this.serviceCep.getEstados();
   }
 
-  buscaCEP() {
+  buscaCEP(event: Event) {
     const input = event?.target as HTMLInputElement;
     const cep = input.value;
 
@@ -58,20 +59,25 @@ export class FormularioComponent {
           this.populaEstadosECidades(dados.uf);
         }
       },
-      error: (error) => {
+      error: () => {
         alert('Erro ao buscar o CEP');
-        console.log(error);
       },
     });
   }
 
   salvarDadosFormulario() {
-    console.log(this.dadosFormulario.value);
+    this.dadosFormulario.markAllAsTouched();
+
+    if (this.dadosFormulario.invalid) {
+      alert('Preencha todos os campos obrigatórios!');
+      return;
+    }
+    this.logFormulario = this.dadosFormulario.value;
+    alert('Dados enviado com sucesso!');
   }
 
   populaEstadosECidades(estadosSigla: string) {
     this.cidades = this.serviceCep.getCidades(estadosSigla);
-    console.log(this.cidades);
   }
 
   selecionaEstado(event: Event) {
@@ -80,7 +86,6 @@ export class FormularioComponent {
 
     if (estadoSigla) {
       this.cidades = this.serviceCep.getCidades(estadoSigla);
-      console.log(this.cidades);
     } else {
       this.cidades = [];
     }

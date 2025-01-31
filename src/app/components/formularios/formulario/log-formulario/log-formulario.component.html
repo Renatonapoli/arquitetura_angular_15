@@ -1,21 +1,20 @@
 <h3>Log do Formuário</h3>
-<section>
-  <h5>Dados Pessoais</h5>
+<section *ngIf="logFormulario">
+    <h5>Dados Pessoais</h5>
 
-  <p>Nome: {{ logFormulario.value.dadosPessoais.nome }}</p>
-  <p>Email: {{ logFormulario.value.dadosPessoais.email }}</p>
-  <p>Profissão: {{ logFormulario.value.dadosPessoais.profissao }}</p>
-  <p>Idade: {{ logFormulario.value.dadosPessoais.idade }}</p>
-  <p>Sexo: {{ logFormulario.value.dadosPessoais.sexo }}</p>
-</section>
+    <p>Nome: {{ logFormulario.dadosPessoais.nome}}</p>
+    <p>Email: {{ logFormulario.dadosPessoais.email }}</p>
+    <p>Profissão: {{ logFormulario.dadosPessoais.profissao }}</p>
+    <p>Idade: {{ logFormulario.dadosPessoais.idade }}</p>
+    <p>Sexo: {{ logFormulario.dadosPessoais.sexo }}</p>
 
-<section>
-  <h5>Endereço:</h5>
+    <h5>Endereço:</h5>
 
-  <p>Cep: {{ logFormulario.value.endereco.cep }}</p>
-  <p>Rua: {{ logFormulario.value.endereco.rua }}</p>
-  <p>Complemento: {{ logFormulario.value.endereco.complemento }}</p>
-  <p>Número: {{ logFormulario.value.endereco.numero }}</p>
-  <p>Cidade: {{ logFormulario.value.endereco.cidade }}</p>
-  <p>Estado: {{ logFormulario.value.endereco.estado }}</p>
+    <p>Cep: {{ logFormulario.endereco.cep }}</p>
+    <p>Rua: {{ logFormulario.endereco.rua }}</p>
+    <p>Complemento: {{ logFormulario.endereco.complemento }}</p>
+    <p>Número: {{ logFormulario.endereco.numero }}</p>
+    <p>Cidade: {{ logFormulario.endereco.cidade }}</p>
+    <p>Estado: {{ logFormulario.endereco.estado }}</p>
+
 </section>
