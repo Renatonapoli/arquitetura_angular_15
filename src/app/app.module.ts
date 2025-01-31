@@ -7,9 +7,10 @@ import { HomeComponent } from './pages/home/home.component';
 import { FiltroComponent } from './components/filtros/filtro/filtro.component';
 import { FormulariosModule } from './components/formularios/formularios.module';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './components/login/login/login.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, FiltroComponent],
+  declarations: [AppComponent, HomeComponent, FiltroComponent, LoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
