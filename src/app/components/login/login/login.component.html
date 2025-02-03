@@ -3,7 +3,6 @@
     <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
     <div class="col-sm-6">
       <input type="text" class="form-control" id="staticEmail" [(ngModel)]="email">
-      {{ email }}
     </div>
   </div>
   <div class="mb-3 row">
@@ -13,5 +12,23 @@
     </div>
   </div>
 </section>
+
+<div *ngIf="alertSucesso" class="toast-container position-fixed top-0 end-0 p-3">
+  <div class="toast show text-white bg-success border-0" role="alert">
+    <div class="d-flex">
+      <div class="toast-body">Login efetuado com sucesso!</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" (click)="alertSucesso = false" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="alertError" class="toast-container position-fixed top-0 end-0 p-3">
+  <div class="toast show text-white bg-danger border-0" role="alert">
+    <div class="d-flex">
+      <div class="toast-body">Login não cadastrado na base!</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" (click)="alertError = false" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
 
 <button class="btn btn-primary" (click)="login()">Logar</button>

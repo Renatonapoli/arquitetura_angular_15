@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   email: string = '';
   senha: string = '';
-  erro: string = '';
+  alertSucesso: boolean = false;
+  alertError: boolean = false;
 
   constructor(private servicoLogin: LoginService, private router: Router) {}
 
@@ -22,12 +23,18 @@ export class LoginComponent {
     );
 
     if (emailExiste) {
-      alert('Login bem-sucedido!');
-      this.erro = '';
-      this.router.navigate(['/homeLogin']);
+      this.alertSucesso = true;
+      this.alertError = false;
+      setTimeout(() => {
+        this.alertSucesso = false;
+        this.router.navigate(['/homeLogin']);
+      }, 2000);
     } else {
-      this.erro = 'Email não cadastrado';
-      alert(this.erro);
+      this.alertSucesso = false;
+      this.alertError = true;
+      setTimeout(() => {
+        this.alertError = false;
+      }, 2000);
     }
   }
 }
