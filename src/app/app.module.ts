@@ -11,6 +11,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { CommonModule } from '@angular/common';
 import { FiltroComponent } from './components/filtros/filtro/filtro.component';
 import { FormsModule } from '@angular/forms';
+import { DashboardModule } from './components/dashboard/dashboard.module';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, FiltroComponent],
@@ -23,6 +24,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     LoginModule,
     FormsModule,
+    DashboardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
