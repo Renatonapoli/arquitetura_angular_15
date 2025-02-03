@@ -8,16 +8,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginModule } from './components/login/login.module';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
+import { CommonModule } from '@angular/common';
+import { FiltroComponent } from './components/filtros/filtro/filtro.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, FiltroComponent],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     RouterModule,
     FormulariosModule,
     HttpClientModule,
     LoginModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

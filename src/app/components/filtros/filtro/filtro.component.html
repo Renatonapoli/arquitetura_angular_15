@@ -1,1 +1,19 @@
-<p>filtro works!</p>
+<section>
+
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" name="valor" placeholder="Search" [(ngModel)]="valor" (input)="filtraLista(valor)" aria-label="Search">
+        <button class="btn btn-outline-success" type="button">Filtrar</button>
+      </form>
+    </div>
+  </nav>
+
+
+  <section>
+    <ul>
+      <li *ngFor="let nome of listaFiltrada">{{ nome }}</li>
+    </ul>
+  </section>
+
+</section>
