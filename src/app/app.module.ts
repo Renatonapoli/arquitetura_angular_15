@@ -11,6 +11,8 @@ import { CommonModule } from '@angular/common';
 import { FiltroComponent } from './components/filtros/filtro/filtro.component';
 import { FormsModule } from '@angular/forms';
 import { DashboardModule } from './components/dashboard/dashboard.module';
+import { InputOutputComponent } from './components/input-output/input-output.component';
+import { InputOutputModule } from './components/input-output/input-output.module';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, FiltroComponent],
@@ -23,6 +25,7 @@ import { DashboardModule } from './components/dashboard/dashboard.module';
     HttpClientModule,
     FormsModule,
     DashboardModule,
+    InputOutputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

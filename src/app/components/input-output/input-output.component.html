@@ -1,0 +1,6 @@
+<section>
+  <h2>Componente Pai</h2>
+  <filho [name]="parentName" (notify)="handleChildMessagge($event)"></filho>
+
+  <p><strong>Mensagem do filho:</strong>{{ messageFromChild }}</p>
+</section>
