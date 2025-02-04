@@ -1,27 +1,31 @@
 import { UserService } from './user-service.service';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  users$!: Observable<any[]>;
+  private isAuthenticatedUser = true;
+  private validCredentials = { username: 'admin', password: '123456' };
 
-  constructor(private userService: UserService) {}
-
-  ngOnInit(): void {
-    this.users$ = this.userService.getUsers();
+  login(username: string, password: string): Observable<boolean> {
+    if (
+      username === this.validCredentials.username &&
+      password === this.validCredentials.password
+    ) {
+      this.isAuthenticatedUser = true;
+      return of(true);
+    } else {
+      return throwError(() => new Error('Usuário ou senha inválidos'));
+    }
   }
 
-  deleteUser(userId: string): void {
-    this.userService.deleteUser(userId).subscribe({
-      next: () => {
-        this.users$ = this.userService.getUsers();
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    });
+  logout(): void {
+    this.isAuthenticatedUser = false;
+  }
+
+  isAuthenticated(): boolean {
+    return this.isAuthenticatedUser;
   }
 }

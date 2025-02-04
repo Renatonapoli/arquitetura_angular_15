@@ -9,7 +9,8 @@ import { AuthService } from '../services/auth-service.service';
   styleUrls: ['./auth-component.component.css'],
 })
 export class AuthComponent {
-  loginForm!: FormGroup;
+  loginForm: FormGroup;
+  toast: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -30,9 +31,17 @@ export class AuthComponent {
           this.router.navigate(['/dashboard']);
         },
         error: (err: any) => {
+          this.toast = true;
+          setTimeout(() => {
+            this.toast = false;
+          }, 2000);
           console.error(err);
         },
       });
     }
+  }
+
+  closeToast() {
+    this.toast = false;
   }
 }

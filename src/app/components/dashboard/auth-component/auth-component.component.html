@@ -1,1 +1,49 @@
-<p>auth-component works!</p>
+<div class="login-container">
+  <h2>Login</h2>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="username">Usuário</label>
+      <input
+      id="username"
+      type="text"
+      formControlName="username"
+      class="form-control"
+      placeholder="Digite seu usuário"
+      />
+      <small *ngIf="loginForm.controls['username'].invalid && loginForm.controls['username'].touched" class="error">
+        Usuário é obrigatório!
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Senha</label>
+      <input
+      id="password"
+      type="text"
+      formControlName="password"
+      class="form-control"
+      placeholder="Digite sua senha"
+      />
+      <small *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched" class="error">
+        Senha é obrigatória.
+      </small>
+    </div>
+
+    <div *ngIf="toast" class="position-fixed mt-5 text-white end-0 top-0 p-3" style="z-index: 11">
+      <div id="liveToast" class="toast show bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <button type="button" class="btn-close" data-bs-dismiss="toast" (click)="closeToast()" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          Usuário ou senha inválido.
+        </div>
+      </div>
+    </div>
+
+
+
+    <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Entrar</button>
+  </form>
+
+</div>

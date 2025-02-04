@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormulariosModule } from './components/formularios/formularios.module';
 import { HttpClientModule } from '@angular/common/http';
-import { LoginModule } from './components/login/login.module';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { CommonModule } from '@angular/common';
@@ -22,7 +21,6 @@ import { DashboardModule } from './components/dashboard/dashboard.module';
     RouterModule,
     FormulariosModule,
     HttpClientModule,
-    LoginModule,
     FormsModule,
     DashboardModule,
   ],
